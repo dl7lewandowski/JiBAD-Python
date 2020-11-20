@@ -6,7 +6,7 @@ def gdc(a, b):
     return a
 
 def main():
-    while True:
+    while True: # a jeśli tylko jedna z tych liczb będzie źle podana?
         try:
             a = int(input("a = "))
             b = int(input("b = "))
