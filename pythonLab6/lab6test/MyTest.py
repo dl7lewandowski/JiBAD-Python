@@ -27,7 +27,7 @@ class TestLinear(unittest.TestCase):
 
 
     def test_linear_solution(self):
-        self.assertCountEqual([1, 3], linear((2, 5), (1, 4)))
+        self.assertCountEqual([1, 3], linear((2, 5), (1, 4)))   # na pewno assertCountEqual?
         self.assertCountEqual([-3, 2], linear((1, -1), (4, -10)))
 
 
