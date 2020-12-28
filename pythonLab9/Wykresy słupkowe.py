@@ -16,7 +16,7 @@ frame = pd.concat([data1, data2])
 startDate = sorted(frame['DATE_TIME'].values.tolist())[0]
 
 date = datetime.datetime.fromtimestamp(startDate / 1e9) - datetime.timedelta(hours=2, minutes=0) # poprawka na 2h po poprawnym parsowaniu danych na godzinę 00:00
-print(date)
+print(date) # usuwamy printy z debugowania
 endTime = sorted(frame['DATE_TIME'].values.tolist())[-1]
 endTime = datetime.datetime.fromtimestamp(endTime / 1e9)
 day = datetime.timedelta(hours=24, minutes=0)
@@ -39,7 +39,7 @@ y2 = [0 for i in range(7)]
 x = ["<75%", "75-85%", "85-95%", "95-105%", "105-115%", "115-125%", ">125%"]
 
 
-for e in means:
+for e in means: # pandas to zrobi wydajniej niż zwykła pętla
     if e[-3] != 0:  # pomijamy takie dni w ktorych srednia byla 0 
         ratio = e[-2] / e[-3]
         if ratio < 0.75:

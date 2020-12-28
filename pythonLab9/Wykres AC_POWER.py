@@ -20,7 +20,7 @@ dateMask = (data['DATE_TIME'] > startDate) & (data['DATE_TIME'] <= endDate)
 
 week = data.loc[dateMask]
 frame1 = week.loc[week["SOURCE_KEY"] == "1BY6WEcLGh8j5v7"]
-frame2 = week.loc[week["SOURCE_KEY"] == "1IF53ai7Xc0U56Y"]
+frame2 = week.loc[week["SOURCE_KEY"] == "1IF53ai7Xc0U56Y"]  # DRY
 frame3 = week.loc[week["SOURCE_KEY"] == "3PZuoBAID5Wc2HD"]
 frame4 = week.loc[week["SOURCE_KEY"] == "7JYdWkrLSPkdwr4"]
 frame5 = week.loc[week["SOURCE_KEY"] == "McdE0feGgRqW7Ca"]
@@ -31,12 +31,12 @@ fig.suptitle('AC_POWER')
 
 # rysowanie wykresu
 
-f1_x = frame1["DATE_TIME"].tolist()
+f1_x = frame1["DATE_TIME"].tolist() # Lista? Czemu nie DataFrame?
 f1_y = frame1["AC_POWER"].tolist()
 axs[0,0].plot(f1_x, f1_y, linewidth=1)
 axs[0,0].set_title("1BY6WEcLGh8j5v7")
 
-f2_x = frame2["DATE_TIME"].tolist()
+f2_x = frame2["DATE_TIME"].tolist() # DRY
 f2_y = frame2["AC_POWER"].tolist()
 axs[0,1].plot(f2_x, f2_y, linewidth=1)
 axs[0,1].set_title("1IF53ai7Xc0U56Y")
