@@ -11,7 +11,7 @@ class LibPosition:
         self.is_available = True
 
     @classmethod
-    def initFromDict(cls, dct):
+    def initFromDict(cls, dct): # raczej snake_case
 
         position = cls(dct["title"], dct["author"], dct["year"], dct["id"])
         position.is_available = dct["is_available"]
@@ -56,13 +56,13 @@ class LibRegistry:
 
     def __loadPositionsFromFile(self):
         
-        jsoned_positions = ""
+        jsoned_positions = ""   # po co ta wartość początkowa?
         with open(self.positions_file, "r") as f:
             jsoned_positions = f.read()
         
         dicted_positions = json.loads(jsoned_positions)
         
-        self.positions = []
+        self.positions = [] # polecam list comprehension
         for dicted in dicted_positions:
             self.positions.append(LibPosition.initFromDict(dicted))
 
@@ -101,7 +101,7 @@ class LibRegistry:
 
         for user in self.users:
             if user.name == name:
-                return True, user.role
+                return True, user.role  # czy to True jest potrzebne, skoro user.role nie może być None?
         
         return False, None
     
@@ -394,7 +394,7 @@ WBIERZ CO CHCESZ ZROBIC:
             break
         
         else:
-            print("niepoprawny wybor... sprobuj jeszcze raz")
+            print("niepoprawny wybor... sprobuj jeszcze raz")   # DRY
 
     print("wylogowano...")
 
@@ -404,7 +404,7 @@ def main():
 
     while True:
 
-        registry = LibRegistry("positions.json", "users.json")
+        registry = LibRegistry("positions.json", "users.json")  # wczytujemy pliki w każdym obrocie pętli?
         nick = input("podaj swoj nick lub wpisz 'q' zeby wyjsc: ")
 
         if nick == 'q':
