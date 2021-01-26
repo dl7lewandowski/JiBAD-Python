@@ -9,8 +9,8 @@ def insertSort(tab):
                 if j+1 != i:
                     tab.insert(j+1, tab[i])
                     del tab[i+1]
-                    break
-                break
+                    break   # ten break jest niepotrzebny, bo i tak się wykona następny
+                break   # czy nie lepiej użyć while'a?
 
 t1 = [2, 5, 0, 8, -3, 2, 5, 3, 3, 10, -20]
 t2 = []

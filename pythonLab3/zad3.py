@@ -29,6 +29,7 @@ word_count_pairs = []
 
 for word in word_counts:
     word_count_pairs.append((word, word_counts[word]))
+# <=> word_counts_pairs = list(word_counts.items())
 
 sorted_pairs = sorted(word_count_pairs, key=lambda x: x[1], reverse=True)
 

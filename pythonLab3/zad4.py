@@ -1,19 +1,19 @@
 
-def isWord(word):
+def isWord(word):   # lepiej importować
     if word != '':
         return True
     return False
 
 f = open("potop.txt", encoding='utf-8')
 
-source_text = f.read().split()
+source_text = f.read().split()  # nie jest dobrze wczytywać duże pliki, jeśli nie ma takiej potrzeby
 
 for i in range(len(source_text)):
   
     source_text[i] = source_text[i].strip()
     source_text[i] = source_text[i].strip( ",.!?-:;'\"")
 
-source_text = [word for word in filter(isWord, source_text) ]
+source_text = [word for word in filter(isWord, source_text) ]   # <=> list(filter(...)), albo można użyć list comprehension
 
 grams_counts = dict()
 grams_maping = dict()

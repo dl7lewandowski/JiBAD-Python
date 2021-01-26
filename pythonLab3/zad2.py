@@ -1,5 +1,5 @@
 
-def minIndex(tab):
+def minIndex(tab):  # raczej snake_case
     
     min_index = 0
     for i in range(1, len(tab)):
@@ -12,7 +12,7 @@ def selectionSort(tab):
 
     for i in range(len(tab)-1):
        
-        min_index = minIndex(tab[i:])
+        min_index = minIndex(tab[i:])   # technicznie tab[i:] to już druga lista; lepiej by przekazać zakres do minIndex
         tab.insert(i, tab[min_index + i])
         del tab[min_index + i + 1]
 
@@ -36,3 +36,6 @@ print(t3)
 print(t4)
 print(t5)
 print(t6)
+
+# co ze stabilnością?
+
